@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+	<title>OTP Simulation</title>
+</head>
+<body onload="displayOTP()">
+  
+	<h2>OTP Simulation</h2>
+
+	<p>Current OTP: <span id="otp"></span></p>
+
+    <button onclick="generateNewOTP()">New OTP</button>
+    <button onclick="enterOTP()">Enter OTP</button>
+
+    <script>
+		function generateOTP() {
+		return Math.floor(100000 + Math.random() * 900000);
+		}
+	
+		function displayOTP() {
+		const otpElement = document.getElementById("otp");
+		otpElement.textContent = generateOTP();
+		}
+
+		
+		function generateNewOTP() {
+		displayOTP();
+		}
+
+		function enterOTP() {
+		const enteredOTP = prompt("Enter OTP:");
+		const currentOTP = document.getElementById("otp").textContent;
+
+		if (enteredOTP === currentOTP) {
+			
+			window.open("https://open.spotify.com/track/7wjmdC4OL3l1nh9zQwCpv8?si=44d333e936b146f8");
+		} 
+		else {
+			alert("Incorrect OTP. Please try again.");
+			generateNewOTP();
+			}
+		}
+    </script>
+
+</body>
+</html>
